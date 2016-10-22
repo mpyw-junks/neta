@@ -31,6 +31,9 @@ caption {
     caption-side: bottom;
     text-align: left;
 }
+caption::before {
+    content: '↑';
+}
 table, td {
     border: solid 1px black;
 }
@@ -46,7 +49,7 @@ td {
 
 <?php foreach ($groups as $i => $rows): ?>
 <table>
-    <caption>↑<?=h($i === 0 ? '各セルの題目' : "グループ$i")?></caption>
+    <caption><?=h($i === 0 ? '各セルの題目' : "グループ$i")?></caption>
 <?php foreach ($rows as $row): ?>
     <tr>
 <?php foreach ($row as $cell): ?>
