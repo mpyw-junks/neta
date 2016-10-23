@@ -12,9 +12,9 @@
 int sumOfRange(int m, int n)
 {
     if (m > n) {
-        m ^= n;
-        n ^= m;
-        m ^= n;
+        int t = m;
+        m = n;
+        n = t;
     }
     return (n * (n + 1) - m * (m - 1)) / 2;
 }
