@@ -14,14 +14,14 @@ unsigned C(unsigned n, unsigned r)
 int main(void)
 {
     unsigned n, r;
-    
+
     printf("n = ");
     if (scanf("%u", &n) != 1) return 1;
-    
+
     printf("r = ");
     if (scanf("%u", &r) != 1) return 1;
-    
+
     printf("C(%u, %u) = %u\n", n, r, C(n, r));
-    
+
     return 0;
 }

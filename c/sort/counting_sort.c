@@ -16,12 +16,12 @@ int main(void)
 {
     unsigned src[] = {2, 0, 7, 3, 9, 7, 4, 5, 5, 8, 2, 6, 1, 5, 2};
     unsigned dst[sizeof(src) / sizeof(unsigned)];
-    
+
     csort(10, sizeof(src) / sizeof(unsigned), src, dst);
-    
+
     for (size_t i = 0; i < sizeof(src) / sizeof(unsigned); ++i) {
         printf("%lu: %u\n", i, dst[i]);
     }
-    
+
     return 0;
 }
