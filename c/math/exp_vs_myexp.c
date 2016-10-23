@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 /*
 
@@ -11,7 +12,7 @@ exp(-x) = 1 / exp(x)
 
 */
 
-double exp(double x)
+double myexp(double x)
 {
     int n = 0;
     double psum, sum = 1.0, item = 1.0;
@@ -24,11 +25,14 @@ double exp(double x)
 
 int main(void)
 {
-    double n;
-    printf("n = ");
-    if (scanf("%lf", &n) != 1) {
-        return 1;
+    int nums[] = {
+        -1000, -200, -100, -50, -10, -1,
+        0,
+        1, 10, 50, 100, 200, 1000
+    };
+    for (int i = 0; i < sizeof(nums) / sizeof(int); ++i) {
+        printf("  exp(%+6d): %e\n", nums[i], exp(nums[i]));
+        printf("myexp(%+6d): %e\n", nums[i], myexp(nums[i]));
     }
-    printf("exp(n) = %f\n", exp(n));
     return 0;
 }
