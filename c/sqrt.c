@@ -12,7 +12,10 @@ double sqrt(double n)
 int main(void)
 {
     double n = -1.0;
-    printf("n = "); scanf("%lf", &n);
+    printf("n = ");
+    if (scanf("%lf", &n) != 1) {
+        return 1;
+    }
     printf("sqrt(n) = %f\n", sqrt(n));
     return 0;
 }
