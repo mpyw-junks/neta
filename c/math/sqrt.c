@@ -13,7 +13,7 @@ int main(void)
 {
     double n;
     printf("n = ");
-    if (scanf("%lf%*[^\n]", &n) != 1) {
+    if (scanf("%lf", &n) != 1) {
         return 1;
     }
     printf("sqrt(n) = %f\n", sqrt(n));

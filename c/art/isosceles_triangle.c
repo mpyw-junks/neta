@@ -5,7 +5,7 @@ int main(void)
     unsigned n;
 
     printf("N (3≦N≦40) := ");
-    if (scanf("%u%*[^\n]", &n) != 1 || n < 3 || n > 40) {
+    if (scanf("%u", &n) != 1 || n < 3 || n > 40) {
         return 1;
     }
 

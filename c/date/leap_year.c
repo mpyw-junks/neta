@@ -9,7 +9,7 @@ int main(void)
 {
     unsigned y;
     printf("Year: ");
-    if (scanf("%u%*[^\n]", &y) != 1) return 1;
+    if (scanf("%u", &y) != 1) return 1;
     printf("LeapYear? %s\n", isLeapYear(y) ? "true" : "false");
     return 0;
 }
