@@ -6,7 +6,7 @@ int main(void)
 
     while (1) {
         printf("入力%d: ", count + 1);
-        if (scanf("%d", &num) != 1) break;
+        if (scanf("%d%*[^\n]", &num) != 1) break;
         if (max != NULL && num < *max) break;
         ++count;
         sum += num;

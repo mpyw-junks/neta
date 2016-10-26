@@ -20,7 +20,7 @@ int main(void)
         RETAKE:
             printf("0:✊　　1:✌　　2:✋　　3:😠　　4:👑\n");
             printf(">>> ");
-            int scanned = scanf("%d", &myHand);
+            int scanned = scanf("%d%*[^\n]", &myHand);
             if (scanned == EOF) return 1;
             if (scanned == 1 && myHand >= 0 && myHand <= 5) break;
         }

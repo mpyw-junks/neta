@@ -48,7 +48,7 @@ int main(void)
     unsigned input;
 
     printf("1〜3999までの数値を入力: ");
-    if (scanf("%u", &input) != 1) {
+    if (scanf("%u%*[^\n]", &input) != 1) {
         printf("読み取りに失敗しました\n");
         return 1;
     }

@@ -40,7 +40,7 @@ int main(void)
     unsigned n;
 
     printf("n = ");
-    if (scanf("%u", &n) != 1) return 1;
+    if (scanf("%u%*[^\n]", &n) != 1) return 1;
 
     Point p = squaresNearestTo(n);
     printf(

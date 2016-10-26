@@ -24,12 +24,12 @@ int main(void)
     int m, n;
 
     printf("m = ");
-    if (scanf("%d", &m) != 1) {
+    if (scanf("%d%*[^\n]", &m) != 1) {
         return 1;
     }
 
     printf("n = ");
-    if (scanf("%d", &n) != 1) {
+    if (scanf("%d%*[^\n]", &n) != 1) {
         return 1;
     }
 

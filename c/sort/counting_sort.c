@@ -20,7 +20,7 @@ int main(void)
     csort(10, sizeof(src) / sizeof(unsigned), src, dst);
 
     for (size_t i = 0; i < sizeof(src) / sizeof(unsigned); ++i) {
-        printf("%lu: %u\n", i, dst[i]);
+        printf("%zu: %u\n", i, dst[i]);
     }
 
     return 0;
