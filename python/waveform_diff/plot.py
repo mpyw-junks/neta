@@ -10,8 +10,8 @@ python - find time shift between two similar waveforms - Stack Overflow
 http://stackoverflow.com/questions/4688715/find-time-shift-between-two-similar-waveforms
 '''
 
-A = fftpack.fft(w0)
-B = fftpack.fft(w1)
+A = fftpack.fft(w0[:, 1])
+B = fftpack.fft(w1[:, 1])
 Ar = -A.conjugate()
 Br = -B.conjugate()
 d0 = np.argmax(np.abs(fftpack.ifft(Ar * B)))
