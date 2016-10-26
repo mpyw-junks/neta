@@ -5,6 +5,11 @@ from scipy import fftpack
 w0 = np.loadtxt("wave1.csv", delimiter=",", skiprows=1)
 w1 = np.loadtxt("wave2.csv", delimiter=",", skiprows=1)
 
+'''
+python - find time shift between two similar waveforms - Stack Overflow
+http://stackoverflow.com/questions/4688715/find-time-shift-between-two-similar-waveforms
+'''
+
 A = fftpack.fft(w0)
 B = fftpack.fft(w1)
 Ar = -A.conjugate()
