@@ -23,7 +23,7 @@ char *romanize(unsigned n, char buffer[16])
         &(Letter){"IV", 4},
         &(Letter){"I", 1},
     };
-    
+
     if (n < 1 || n > 3999) {
         return NULL;
     }
@@ -38,7 +38,7 @@ char *romanize(unsigned n, char buffer[16])
         n = reminder;
     }
     buffer[offset] = '\0';
-    
+
     return buffer;
 }
 
@@ -46,18 +46,18 @@ int main(void)
 {
     char buffer[16];
     unsigned input;
-    
+
     printf("1〜3999までの数値を入力: ");
     if (scanf("%u", &input) != 1) {
         printf("読み取りに失敗しました\n");
         return 1;
     }
-    
+
     if (!romanize(input, buffer)) {
         printf("%u は表記できません\n", input);
         return 1;
     }
     printf("%u はローマ数字表記で %s です\n", input, buffer);
-        
+
     return 0;
 }

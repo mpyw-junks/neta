@@ -13,11 +13,11 @@ double sqrt(double n)
     return s;
 }
 
-Point squaresNearestTo(unsigned n) 
+Point squaresNearestTo(unsigned n)
 {
     double *min;
     Point *p;
-    
+
     for (unsigned x = 0, range = sqrt(n); x <= range; ++x) {
         double intercept = sqrt(n - x * x);
         unsigned y = intercept;
@@ -31,22 +31,22 @@ Point squaresNearestTo(unsigned n)
             p = &(Point){x, y};
         }
     }
-    
+
     return *p;
 }
 
 int main(void)
 {
     unsigned n;
-    
+
     printf("n = ");
     if (scanf("%u", &n) != 1) return 1;
-    
+
     Point p = squaresNearestTo(n);
     printf(
         "%u に最も近い非負整数二乗和は %u^2 + %u^2 = %u\n",
         n, p.x, p.y, p.x * p.x + p.y * p.y
     );
-    
+
     return 0;
 }
