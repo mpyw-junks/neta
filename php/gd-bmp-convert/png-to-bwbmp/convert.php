@@ -20,6 +20,8 @@ imagebwbmp(imagecreatefrompng('src.png'), 'out.bmp', 0.45);
  * @param float $threshold
  *            The number in the range of 0.0 to 1.0.
  *            Brighter for larger, or darker for smaller.
+ *
+ * @return bool Returns TRUE on success or FALSE on failure.
  * 
  */
 function imagebwbmp($image, $to = null, $threshold = 0.5)
