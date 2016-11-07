@@ -118,7 +118,7 @@ function imagebwbmp($image, $to = null, $threshold = 0.5)
 
         // If bits are remaining, pad right with zeros and flush them
         if ($bitIdx) {
-            fwrite($to, pack('C', $byte << $bitIdx));
+            fwrite($to, pack('C', $byte << (8 - $bitIdx)));
         }
 
         // If number of bytes is not a multiple of 32, fill blank with zeros
