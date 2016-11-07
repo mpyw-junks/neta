@@ -71,7 +71,7 @@ function imagebwbmp($image, $to = null, $threshold = 0.5)
     // Get image information
     $biWidth = imagesx($image);
     $biHeight = imagesy($image);
-    $biSizeImage = $biWidth * $biHeight;
+    $biSizeImage = ((int)ceil($biWidth / 32) * 32 / 8 * $biHeight);
     $bfOffBits = 54 + 4 * 2; // Use two colors (black and white)
     $bfSize = $bfOffBits + $biSizeImage;
     
