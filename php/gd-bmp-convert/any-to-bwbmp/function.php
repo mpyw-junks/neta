@@ -85,13 +85,10 @@ function imagebwbmp($image, $to = null, $threshold = 0.5)
 
         for ($x = 0; $x < $biWidth; ++$x) {
             // Calculate RGB
-            $rgb = imagecolorat($image, $x, $y);
-            $r = ($rgb >> 16) & 0xff;
-            $g = ($rgb >> 8) & 0xff;
-            $b = $rgb & 0xff;
+            $rgb = imagecolorsforindex($image, imagecolorat($image, $x, $y));
 
             // Calculate weightened average of RGB
-            $value = (0.299 * $r + 0.587 * $g + 0.114 * $b) / 0xff;
+            $value = (0.299 * $rgb['red'] + 0.587 * $rgb['green'] + 0.114 * $rgb['blue']) / 0xff;
 
             // Determine white(0) or black(1)
             $color = (int)($value > $threshold);

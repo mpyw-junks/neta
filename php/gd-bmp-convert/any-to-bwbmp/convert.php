@@ -8,6 +8,7 @@ $list = [
     'cat.jpg' => 0.7,
     'mpyw.png' => 0.7,
     'sky.jpg' => 0.5,
+    'lenna2.gif' => 0.5,
 ];
 
 foreach ($list as $filename => $threshold) {
