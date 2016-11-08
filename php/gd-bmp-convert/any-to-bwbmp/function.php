@@ -49,7 +49,7 @@ function imagebwbmp($image, $to = null, $threshold = 0.5)
         case $to === null:
             break;
         case is_resource($to) && get_resource_type($to) === 'stream':
-        case is_string($to) and $to = fopen($to, 'wb'):
+        case is_string($to) && $to = fopen($to, 'wb'):
             if (preg_match('/[waxc+]/', stream_get_meta_data($to)['mode'])) {
                 break;
             }
