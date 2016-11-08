@@ -8,28 +8,20 @@
 
 #include <stdio.h>
 #include <stdint.h>
+
+// Record構造体配列の上限
 #define MAX_RECORD_SIZE 20
+// Record構造体をuint32_t化するマクロ
+#define RINT32(r) (r.grade << 24 | r.class << 16 | r.number << 8 | r.index)
 
-/*
-
-uint8_t が4つの構造体
-→ 比較が uint32_t にキャストするだけでできる
-→ IntelのCPUはリトルエンディアンなのでソートの優先度の低いものを頭に持ってくる
-
-※ 移植性を考えるならすべきではないロマンのコード
-
-*/
 typedef struct {
-    uint8_t index;
-    uint8_t number;
-    uint8_t class;
-    uint8_t grade;
+    uint8_t grade, class, number, index;
+    char name[256];
 } Record;
 
 int main(void)
 {
     Record records[MAX_RECORD_SIZE];
-    char names[MAX_RECORD_SIZE][256];
     char buffer[512];
     uint8_t n;
 
@@ -45,9 +37,8 @@ int main(void)
         scanf("%*c");
         // さらにn番目のレコードに読み取り結果を格納
         Record *r = &records[n];
-        char *name = names[n];
         r->index = n;
-        if (sscanf(buffer, "%hhu年%hhu組%hhu番 %255s", &r->grade, &r->class, &r->number, name) != 4) {
+        if (sscanf(buffer, "%hhu年%hhu組%hhu番 %255s", &r->grade, &r->class, &r->number, r->name) != 4) {
             break;
         }
     }
@@ -55,7 +46,7 @@ int main(void)
     // バブルソートで手抜き
     for (uint8_t i = 0; i < n - 1; ++i) {
         for (uint8_t j = n - 1; j > i; --j) {
-            if (*((uint32_t *)&records[j - 1]) > *((uint32_t *)&records[j])) {
+            if (RINT32(records[j - 1]) > RINT32(records[j])) {
                 Record tmp = records[j];
                 records[j] = records[j - 1];
                 records[j - 1]= tmp;
@@ -67,8 +58,7 @@ int main(void)
     printf("\n[ソート後]\n");
     for (uint8_t i = 0; i < n; ++i) {
         Record *r = &records[i];
-        char *name = names[r->index];
-        printf("[%hhu] %hhu年%hhu組%hhu番 %s\n", i, r->grade, r->class, r->number, name);
+        printf("[%hhu] %hhu年%hhu組%hhu番 %s\n", i, r->grade, r->class, r->number, r->name);
     }
 
     return 0;
