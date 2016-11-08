@@ -45,8 +45,6 @@ function imagebwbmp($image, $to = null, $threshold = 0.5)
         trigger_error($msg, E_USER_WARNING);
         return false;
     }
-
-    // Validate details
     switch (true) {
         case $to === null:
             break;
