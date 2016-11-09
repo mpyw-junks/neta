@@ -22,6 +22,6 @@ int main(void)
     }
     scanf("%*c");
 
-    printf("strcmp(s1, s2) = %d\n", strcmp(s1, s2));
+    printf("fast_strcmp(s1, s2) = %d\n", fast_strcmp(s1, s2));
     return 0;
 }
